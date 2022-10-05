@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap');
+
+:root {
+    --personal: #aa5377;
+    --business: #3b3759;
+    --business-btn: #08979d;
+    --personal-btn: #8474a1;
+    --light: #eee;
+    --dark: #26263d;
+    --grey: rgb(142, 141, 141);
+    --dark-grey: rgb(98, 95, 95);
+
+    --business-glow: 0px 0px 4px rgb(59, 55, 89, 0.75);
+    --personal-glow: 0px 0px 4px rgb(170, 83, 119, 0.75);
+
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.app {
+    position: relative;
+    background: var(--light);
+    font-family: 'Roboto Slab', serif;
+    color: var(--dark-grey);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title{
+    display: flex;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+input[type="text"] {
+    appearance: none;
+    border: none;
+    outline: none;
+    box-shadow: var(--shadow);
+}
+
+#name{
+    background: none;
+    font-weight: 600;
+    color: var(--dark);
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-left: 7px;
+    font-size: 38px;
+    box-shadow: none;
+}
+
+.new-todo-form {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    height: 100%;
+}
+
+.new-todo-form h3 {
+    font-size: 28px;
+    padding-bottom: 15px;
+}
+
+#new-todo-form h4 {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+#new-todo-form input::placeholder, input[type="text"] {
+    color: var(--dark-grey);
+    font-size: 18px;
+}
+
+.btn-success {
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+#content {
+    margin-bottom: 25px;
+    padding: 13px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 25px;
+}
+
+.options label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 19px;
+    background: #fff;
+    padding: 20px 50px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+.bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--business);
+    box-shadow: var(--business-glow);
+}
+
+.bubble.personal {
+    border: 2px solid var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+    content: '';
+    display: block;
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+    border-radius: 50%;
+    background-color: var(--business);
+    box-shadow: var(--business-glow);
+    transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+    background-color: var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble:after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+.todo-item input[type="text"] {
+    background: none;
+    box-shadow: none;
+    color: var(--dark-grey);
+}
+
+.todo-list .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.todo-list .todo-item .todo-content {
+    flex: 1 1 0%;
+}
+
+.todo-item.done .todo-content input {
+    text-decoration: line-through;
+    color: var(--grey);
+}
+
+.actions .btn-primary {
+    margin-right: 10px;
+}
